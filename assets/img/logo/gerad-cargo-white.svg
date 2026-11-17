@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="270" height="76" viewBox="0 0 270 76" role="img" aria-labelledby="title">
+  <title id="title">Gerad Cargo</title>
+  <path fill="#ffffff" d="M37 5c-17 0-30 13-30 30S20 65 37 65h24V38H37v12h11v3H37c-10 0-18-8-18-18s8-18 18-18c7 0 13 4 16 9l10-7C57 10 47 5 37 5Z"/>
+  <path fill="#ed2b16" d="M7 39h12v10H7zm42-1h12v10H49z"/>
+  <text x="75" y="39" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="700" letter-spacing="-1">GERAD CARGO</text>
+  <text x="77" y="59" fill="#e1e7e4" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="700" letter-spacing="2">TRANSPORT &amp; LOGISTICS</text>
+</svg>

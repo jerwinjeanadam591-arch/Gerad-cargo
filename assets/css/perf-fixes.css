@@ -1,0 +1,14 @@
+/* Performance & layout fixes: reserve logo space and minor image improvements */
+.logo-display, .logo-scrolled { height:48px; width:auto; max-width:220px; display:inline-block; }
+.navbar-extra-logo img.logo-outside { height:48px; width:auto; }
+
+/* Ensure images behave predictably (reduce CLS) */
+img{ display:block; max-width:100%; height:auto; }
+
+/* Utility: mark images that should never be lazy-loaded */
+img[data-priority="true"]{ loading: auto; }
+
+/* Hero background: use picture/img positioned behind content to match previous background-image behavior */
+.hero-area{ position: relative; overflow: hidden; }
+.hero-area .hero-bg-picture{ position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; }
+.hero-area .hero-bg-picture img.hero-bg-image{ width: 100%; height: 100%; object-fit: cover; display: block; }
