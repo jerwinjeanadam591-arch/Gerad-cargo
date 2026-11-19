@@ -1353,6 +1353,14 @@ label {
   display: flex;
   align-items: center;
   gap: 1.5rem; }
+  .footer-bio img {
+    width: 64px;
+    height: 64px;
+    flex: none;
+    object-fit: contain;
+    padding: 4px;
+    border-radius: 6px;
+    background-color: var(--clr-white); }
   .footer-bio .footer-bio-text h6 {
     text-transform: capitalize;
     margin-bottom: 5px;
@@ -1402,7 +1410,19 @@ label {
 
 .footer-logo img {
   height: 60px;
-  display: block; }
+  display: block;
+  padding: 4px;
+  border-radius: 4px;
+  background-color: var(--clr-white); }
+
+.about-btm-user > img {
+  width: 64px;
+  height: 64px;
+  flex: none;
+  object-fit: contain;
+  padding: 4px;
+  border-radius: 6px;
+  background-color: var(--clr-white); }
 
 .about-us {
   padding-right: 5rem;
@@ -1752,6 +1772,25 @@ label {
 
 .navbar .navbar-brand .logo-scrolled {
   display: none; }
+
+.navbar .navbar-brand .logo-display,
+.navbar .navbar-brand .logo-scrolled {
+  width: 160px;
+  height: auto;
+  max-height: 75px;
+  object-fit: contain;
+  padding: 4px;
+  border-radius: 4px;
+  background-color: var(--clr-white); }
+
+.navbar-extra-logo .logo-outside {
+  width: 160px;
+  height: auto;
+  max-height: 90px;
+  object-fit: contain;
+  padding: 4px;
+  border-radius: 4px;
+  background-color: var(--clr-white); }
 
 .navbar.in .navbar-brand .logo-display {
   display: none; }
