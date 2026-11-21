@@ -9,7 +9,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<!-- Place favicon.ico in the root directory -->
-	<link rel="shortcut icon" type="image/png" href="assets/img/gerald-icon.png">
+	<link rel="shortcut icon" type="image/png" href="assets/img/gerald-logo.png">
 	<!-- ========== Start Stylesheet ========== -->
 	<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="assets/css/all.min.css" rel="stylesheet" />
@@ -23,8 +23,8 @@
 	<link href="assets/css/swiper-bundle.min.css" rel="stylesheet" />
 	<link href="assets/css/jquery-ui.css" rel="stylesheet" />
 	<link href="assets/style.css" rel="stylesheet">
-	<link href="assets/css/perf-fixes.css" rel="stylesheet">
-<link href="assets/css/responsive.css" rel="stylesheet" />
+	<link href="assets/css/perf-fixes.css?v=7" rel="stylesheet">
+<link href="assets/css/responsive.css?v=6" rel="stylesheet" />
 	<!-- ========== End Stylesheet ========== -->
 	
 </head>
@@ -66,7 +66,7 @@
 										</div>
 										<div class="top-email top-box mr-30">
 											<i class="fa-solid fa-box" aria-hidden="true"></i>
-											<span>Road freight &amp; cargo delivery</span>
+											<span>Freight, logistics &amp; construction</span>
 										</div>
 										<div class="top-phone top-box">
 											<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
@@ -84,7 +84,7 @@
 									<img src="assets/img/gerald-logo.png" class="logo-display" alt="Gerald Cargo logo">
 									<img src="assets/img/gerald-logo.png" class="logo-scrolled" alt="Gerald Cargo logo">
 								</a>
-								<button class="navbar-toggler toggler-spring">
+								<button class="navbar-toggler toggler-spring" type="button" aria-label="Open navigation menu" aria-controls="mobile-navigation" aria-expanded="false">
 									<span class="navbar-toggler-icon"></span>
 								</button>
 							</div>
@@ -102,10 +102,11 @@
 											<li class="nav-item"><a class="nav-link" href="service.html#road-freight">Road Freight</a></li>
 											<li class="nav-item"><a class="nav-link" href="service.html#cargo-delivery">Cargo Delivery</a></li>
 											<li class="nav-item"><a class="nav-link" href="service.html#logistics-support">Logistics Support</a></li>
+											<li class="nav-item"><a class="nav-link" href="service.html#construction-services">Building Construction</a></li>
 										</ul>
 									</li>
 									<li class="nav-item dropdown fadeup">
-										<a class="nav-link" href="about.html">Company <i class="ti-plus"></i></a>
+										<a class="nav-link" href="about.html" aria-current="page">Company <i class="ti-plus"></i></a>
 										<ul class="navbar-nav">
 											<li class="nav-item"><a class="nav-link" href="about.html">About Gerad Cargo</a></li>
 											<li class="nav-item"><a class="nav-link" href="faq.html" aria-current="page">Frequently Asked Questions</a></li>
@@ -121,7 +122,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="bsnav-mobile">
+			<div class="bsnav-mobile" id="mobile-navigation">
 				<div class="bsnav-mobile-overlay"></div>
 				<div class="navbar"></div>
 			</div>
@@ -151,6 +152,9 @@
 		<div class="faq-area pos-rel de-padding">
 			<div class="container">
 				<div class="faq-wpr">
+					<div class="faq-photo-strip">
+						<img src="gerald%20images/herosection/WhatsApp%20Image%202026-11-17%20at%2012.14.42.jpeg" alt="Gerad Cargo transportation and logistics" loading="lazy">
+					</div>
 					<div class="row">
 						<div class="col-xl-6 offset-xl-3">
 							<div class="course-accordion">
@@ -215,6 +219,18 @@
 											</div>
 										</div>
 									</div>
+									<div class="accordion-item">
+										<h2 class="accordion-header" id="headingSix">
+											<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+												Do you provide building construction services?
+											</button>
+										</h2>
+										<div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+											<div class="accordion-body">
+												<p class="mb-0">Yes. Gerad Cargo supports residential and commercial construction, renovations, extensions, site preparation, material coordination and project planning. Contact us with the project location, scope, estimated size and timeframe for an initial discussion.</p>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -228,7 +244,7 @@
 	
 	<!-- Start Footer 
 	============================================= -->
-	<footer class="footer pos-rel overflow-hidden hero-bg" style="background-image: url('gerald%20images/WhatsApp%20Image%202026-11-17%20at%2012.14.25.jpeg')">
+	<footer class="footer pos-rel overflow-hidden hero-bg" style="background-image: url('gerald%20images/herosection/WhatsApp%20Image%202026-11-17%20at%2012.14.42%20(1).jpeg')">
 		<div class="footer-up de-padding">
 			<div class="container">
 				<div class="row g-5">
@@ -238,11 +254,11 @@
 								<img src="assets/img/gerald-logo.png" alt="Gerald Cargo logo">
 							</div>
 							<p class="mb-40">
-								Gerad Cargo provides transportation and logistics services to destinations throughout Tanzania.
+								Gerad Cargo provides transportation, logistics and building construction services across Tanzania.
 							</p>
 							<div class="footer-bio">
 								<div class="footer-bio-pic">
-									<img src="assets/img/gerald-icon.png" alt="Gerald Cargo">
+									<img src="assets/img/gerald-logo.png" alt="Gerald Cargo">
 								</div>
 								<div class="footer-bio-text">
 									<h6>Gerad Cargo</h6>
@@ -306,7 +322,7 @@
 								<li><span>Road freight :</span> <span>Across Tanzania</span> </li>
 								<li><span>Cargo delivery :</span> <span>Ask for a quote</span> </li>
 								<li><span>Business goods :</span> <span>Route planning</span> </li>
-								<li><span>Other cargo :</span> <span>Contact us</span></li>
+								<li><span>Building construction :</span> <span>Project enquiries</span></li>
 							</ul>
 						</div>
 					</div>
@@ -340,6 +356,10 @@
 	============================================= -->
 	<a href="#bdy" id="scrtop" class="smooth-menu"><i class="ti-arrow-up"></i></a>
 	<!-- End Scroll top-->
+	<a class="whatsapp-float" href="https://wa.me/255752321546?text=Hello%20Gerad%20Cargo%2C%20I%20would%20like%20to%20make%20an%20enquiry." target="_blank" rel="noopener noreferrer" aria-label="Chat with Gerad Cargo on WhatsApp">
+		<i class="bi bi-whatsapp" aria-hidden="true"></i>
+		<span>WhatsApp</span>
+	</a>
 	
 	<!-- jQuery Frameworks
     ============================================= -->
@@ -361,7 +381,7 @@
 	<script defer src="assets/js/swiper-bundle.min.js"></script>
 	<script defer src="assets/js/active-class.js"></script>
 	<script defer src="assets/js/jquery-ui.min.js"></script>
-	<script defer src="assets/js/main.js?v=4"></script>
+	<script defer src="assets/js/main.js?v=5"></script>
 	
 </body>
 

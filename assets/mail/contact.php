@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 function sanitizeText($value) {
-    return trim((string) $value);
+    return trim(str_replace(["\r", "\n", "\0"], '', (string) $value));
 }
 
 function isValidEmail($email) {
@@ -67,7 +67,7 @@ if ($recipient === false || !isValidEmail($recipient)) {
     http_response_code(503);
     exit('Quote enquiries are temporarily unavailable because the contact recipient is not configured.');
 }
-$subject = 'New inquiry from ' . $name;
+$subject = 'Gerad Cargo quote enquiry from ' . $name;
 
 $body = "You have been contacted by {$name}.\r\n";
 $body .= "Email: {$email}\r\n";
@@ -88,7 +88,7 @@ $body .= "Dimensions: " . implode(', ', array_map(
 $body .= "Message:\r\n{$comments}\r\n";
 
 $headers = [
-    'From: ' . $email,
+    'From: Gerad Cargo <' . $recipient . '>',
     'Reply-To: ' . $email,
     'MIME-Version: 1.0',
     'Content-Type: text/plain; charset=UTF-8',

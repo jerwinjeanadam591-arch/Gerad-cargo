@@ -277,34 +277,72 @@
 			" - " + $( "#slider-range" ).slider( "values", 1 ) );
 		}
 		
-		/* ==================================================
-            Contact Form Validations
-        ================================================== */
-        $('.contact-form').each(function() {
-            var formInstance = $(this);
-            formInstance.on('submit', function(event) {
-                event.preventDefault();
+		/* Send all transport and construction enquiries through WhatsApp. */
+		document.querySelectorAll('.contact-form, .contact-form-requ').forEach(function(form) {
+		    form.addEventListener('submit', function(event) {
+		        event.preventDefault();
 
-                var submitButton = formInstance.find('button[type="submit"]');
-                var message = formInstance.find('#message');
+		        var formData = new FormData(form);
+		        if (String(formData.get('website') || '').trim() !== '') return;
 
-                submitButton.prop('disabled', true).attr('aria-busy', 'true');
-                message.stop(true, true).empty().hide();
+		        var fieldLabels = {
+		            name: 'Name',
+		            email: 'Email',
+		            phone: 'Phone',
+		            origin: 'Collection city',
+		            destination: 'Delivery city',
+		            distance: 'Estimated route distance (km)',
+		            freight_type: 'Cargo or service type',
+		            delivery_requirements: 'Delivery requirements',
+		            comments: 'Project or shipment details',
+		            width: 'Width',
+		            height: 'Height',
+		            weight: 'Weight',
+		            length: 'Length',
+		            fragile: 'Fragile cargo',
+		            express_delivery: 'Time-sensitive delivery',
+		            packaging: 'Packaging assistance'
+		        };
+		        var lines = [
+		            'Hello Gerad Cargo, I would like to make an enquiry.',
+		            ''
+		        ];
 
-                $.ajax({
-                    url: formInstance.attr('action'),
-                    method: 'POST',
-                    data: formInstance.serialize(),
-                    dataType: 'html'
-                }).done(function(data) {
-                    message.html(data).slideDown('slow');
-                }).fail(function() {
-                    message.text('Unable to send your message right now. Please try again later.').slideDown('slow');
-                }).always(function() {
-                    submitButton.prop('disabled', false).removeAttr('aria-busy');
-                });
-            });
-        });
+		        formData.forEach(function(value, name) {
+		            if (name === 'website' || name === 'terms' || name === 'submit') return;
+
+		            var text = String(value).trim();
+		            if (!text) return;
+
+		            lines.push((fieldLabels[name] || name) + ': ' + text);
+		        });
+
+		        var whatsappUrl = 'https://wa.me/255752321546?text=' + encodeURIComponent(lines.join('\n'));
+		        var status = form.querySelector('[data-whatsapp-status]');
+		        if (!status) {
+		            status = document.createElement('p');
+		            status.setAttribute('data-whatsapp-status', '');
+		            status.setAttribute('role', 'status');
+		            status.setAttribute('aria-live', 'polite');
+		            status.className = 'whatsapp-form-status';
+		            form.appendChild(status);
+		        }
+
+		        var whatsappWindow = window.open(whatsappUrl, '_blank');
+		        if (whatsappWindow) {
+		            whatsappWindow.opener = null;
+		            status.textContent = 'Your enquiry is ready in WhatsApp. Review it and press Send to contact Gerad Cargo.';
+		        } else {
+		            status.textContent = 'WhatsApp could not be opened automatically. ';
+		            var link = document.createElement('a');
+		            link.href = whatsappUrl;
+		            link.target = '_blank';
+		            link.rel = 'noopener noreferrer';
+		            link.textContent = 'Open your enquiry in WhatsApp';
+		            status.appendChild(link);
+		        }
+		    });
+		});
 		
 		/* ==================================================
 			# Hero Init
@@ -625,6 +663,58 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     } catch (e) {
         console && console.error && console.error('Lazy init error', e);
+    }
+});
+
+/* Keep the mobile navigation button state accessible and in sync. */
+document.addEventListener('DOMContentLoaded', function() {
+    var toggler = document.querySelector('.navbar-toggler');
+    var mobileMenu = document.querySelector('#mobile-navigation');
+    if (!toggler || !mobileMenu) return;
+
+    toggler.addEventListener('click', function() {
+        window.setTimeout(function() {
+            var isOpen = mobileMenu.classList.contains('in');
+            toggler.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            toggler.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+        }, 0);
+    });
+
+    var overlay = mobileMenu.querySelector('.bsnav-mobile-overlay');
+    if (overlay) {
+        overlay.addEventListener('click', function() {
+            toggler.setAttribute('aria-expanded', 'false');
+            toggler.setAttribute('aria-label', 'Open navigation menu');
+        });
+    }
+});
+
+/* Automatically crossfade the homepage hero images with a slow zoom. */
+document.addEventListener('DOMContentLoaded', function() {
+    var hero = document.querySelector('#hero-slideshow');
+    if (!hero) return;
+
+    var slides = Array.prototype.slice.call(hero.querySelectorAll('.hero-slide'));
+    if (slides.length < 2) return;
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var current = 0;
+    var timer;
+
+    function showNext() {
+        slides[current].classList.remove('is-active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('is-active');
+    }
+
+    if (!reduceMotion) {
+        timer = window.setInterval(showNext, 5500);
+        hero.addEventListener('mouseenter', function() {
+            window.clearInterval(timer);
+        });
+        hero.addEventListener('mouseleave', function() {
+            timer = window.setInterval(showNext, 5500);
+        });
     }
 });
 
