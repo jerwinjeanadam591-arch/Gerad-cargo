@@ -1,0 +1,40 @@
+name: Notify search engines
+
+on:
+  workflow_run:
+    workflows:
+      - pages build and deployment
+    types:
+      - completed
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  submit-updated-pages:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Submit site URLs to IndexNow
+        env:
+          INDEXNOW_KEY: 55c29f3d0496ffa9afef4c97b62a0e67
+        run: |
+          curl --fail-with-body --silent --show-error \
+            --request POST 'https://api.indexnow.org/indexnow' \
+            --header 'Content-Type: application/json; charset=utf-8' \
+            --data "{
+              \"host\": \"geraldtransporters.co.tz\",
+              \"key\": \"${INDEXNOW_KEY}\",
+              \"keyLocation\": \"https://geraldtransporters.co.tz/${INDEXNOW_KEY}.txt\",
+              \"urlList\": [
+                \"https://geraldtransporters.co.tz/\",
+                \"https://geraldtransporters.co.tz/about.html\",
+                \"https://geraldtransporters.co.tz/service.html\",
+                \"https://geraldtransporters.co.tz/contact.html\",
+                \"https://geraldtransporters.co.tz/faq.html\",
+                \"https://geraldtransporters.co.tz/privacy.html\"
+              ]
+            }"
