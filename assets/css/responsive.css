@@ -759,24 +759,35 @@
 		font-size: 1.6rem;
 	}
 	
+	.about-phase-1 {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1.6rem;
+	}
+
+	.about-phase-1 img,
 	.about-phase-1 img:first-child {
-		margin-right: 30px;
+		width: 100%;
+		min-width: 0;
+		margin-right: 0;
 	}
 	
 	.about-right-2 {
 		padding-left: 0;
 	}
 	
-	.about-phase-1 {
-		display: flex;
-	}
-	
-	.about-phase-1 img {
-		width: 100%;
-	}
-	
 	.about-phase-2{
 		display: none;
+	}
+
+	.quote-form-footer {
+		align-items: stretch;
+		flex-direction: column;
+	}
+
+	.quote-form .contact-sub-btn,
+	.quote-form .btn-submit {
+		width: 100%;
 	}
 	
 	.about-left-img .about-left-img-shape {
@@ -2744,4 +2755,3 @@
 		font-weight: 500;
 	}
 }
-

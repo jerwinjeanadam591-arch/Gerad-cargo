@@ -1,0 +1,18 @@
+{
+  "name": "Gerald Cargo",
+  "short_name": "Gerald Cargo",
+  "description": "Cargo transport, logistics and construction services across Tanzania.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#123c32",
+  "icons": [
+    {
+      "src": "/assets/img/logo/gerad-cargo-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
