@@ -15,7 +15,8 @@ img[data-priority="true"]{ loading: auto; }
 
 .construction-photo {
 	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
+	grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+	align-items: start;
 	gap: 1rem;
 	overflow: hidden;
 	border-radius: 14px;
@@ -23,8 +24,8 @@ img[data-priority="true"]{ loading: auto; }
 
 .construction-photo img {
 	width: 100%;
-	height: 420px;
-	object-fit: cover;
+	height: auto;
+	object-fit: contain;
 	border-radius: 12px;
 	box-shadow: 0 18px 45px rgba(15, 25, 48, 0.12);
 }
@@ -433,10 +434,6 @@ img[data-priority="true"]{ loading: auto; }
 		padding: 3rem;
 	}
 
-	.construction-photo img {
-		height: 320px;
-	}
-
 	.office-contact-grid,
 	.office-map-grid {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -479,15 +476,8 @@ img[data-priority="true"]{ loading: auto; }
 	}
 
 	.construction-photo {
+		grid-template-columns: minmax(0, 1fr);
 		margin-bottom: 1.5rem;
-	}
-
-	.construction-photo img {
-		height: 200px;
-	}
-
-	.construction-photo {
-		gap: 0.8rem;
 	}
 
 	.construction-services {
@@ -942,23 +932,11 @@ img[data-priority="true"]{ loading: auto; }
 	box-shadow: 0 0 0 2px #fff !important;
 }
 
-.construction-image-note,
 .quote-privacy-note,
 .form-privacy-note {
 	color: #566273;
 	font-size: 1.35rem;
 	line-height: 1.6;
-}
-
-.hero-image-note {
-	margin: 1.2rem 0 0;
-	color: #fff;
-	font-size: 1.2rem;
-	line-height: 1.5;
-}
-
-.construction-image-note {
-	margin: 1.2rem 0 0;
 }
 
 .footer-privacy-link {
