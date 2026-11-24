@@ -279,8 +279,8 @@
 		
 		/* Send all transport and construction enquiries through WhatsApp. */
 		document.querySelectorAll('.contact-form, .contact-form-requ').forEach(function(form) {
-		    form.addEventListener('submit', function(event) {
-		        event.preventDefault();
+			form.addEventListener('submit', function(event) {
+				event.preventDefault();
 
 		        var formData = new FormData(form);
 		        if (String(formData.get('website') || '').trim() !== '') return;
@@ -294,17 +294,18 @@
 		            distance: 'Estimated route distance (km)',
 		            freight_type: 'Cargo or service type',
 		            delivery_requirements: 'Delivery requirements',
+					preferred_date: 'Preferred date',
 		            comments: 'Project or shipment details',
-		            width: 'Width',
-		            height: 'Height',
-		            weight: 'Weight',
-		            length: 'Length',
+					width: 'Width (cm)',
+					height: 'Height (cm)',
+					weight: 'Weight (kg)',
+					length: 'Length (cm)',
 		            fragile: 'Fragile cargo',
 		            express_delivery: 'Time-sensitive delivery',
 		            packaging: 'Packaging assistance'
 		        };
 		        var lines = [
-		            'Hello Gerad Cargo, I would like to make an enquiry.',
+					'Hello Gerald Cargo, I would like to make an enquiry.',
 		            ''
 		        ];
 
@@ -331,7 +332,7 @@
 		        var whatsappWindow = window.open(whatsappUrl, '_blank');
 		        if (whatsappWindow) {
 		            whatsappWindow.opener = null;
-		            status.textContent = 'Your enquiry is ready in WhatsApp. Review it and press Send to contact Gerad Cargo.';
+		            status.textContent = 'Your enquiry is ready in WhatsApp. Review it and press Send to contact Gerald Cargo.';
 		        } else {
 		            status.textContent = 'WhatsApp could not be opened automatically. ';
 		            var link = document.createElement('a');
