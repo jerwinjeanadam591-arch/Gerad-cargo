@@ -763,7 +763,7 @@ img[data-priority="true"]{ loading: auto; }
 .hero-area .hero-bg-picture{ position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; }
 .hero-area .hero-bg-picture img.hero-bg-image{ width: 100%; height: 100%; object-fit: cover; display: block; }
 
-/* Automatic hero slideshow with a slow growing (Ken Burns) effect */
+/* Automatic hero slideshow */
 .hero-area#hero-slideshow {
 	background: #17243f;
 }
@@ -780,7 +780,7 @@ img[data-priority="true"]{ loading: auto; }
 	inset: 0;
 	width: 100%;
 	height: 100%;
-	object-fit: contain;
+	object-fit: cover;
 	object-position: center;
 	opacity: 0;
 	transform: scale(1);
@@ -807,7 +807,7 @@ img[data-priority="true"]{ loading: auto; }
 
 @media (max-width: 767px) {
 	.hero-slide {
-		object-position: center center;
+		object-position: center;
 	}
 
 	.hero-area#hero-slideshow::after {
